@@ -1,18 +1,21 @@
-import { useState } from "react";
 import "./App.css";
-import Alert from "./components/Alert";
-import Button from "./components/Button";
+import Home from "./pages/MoviesApp/Home";
+import { Routes, Route } from "react-router-dom";
+import Favorites from "./pages/MoviesApp/Favorites";
+import NavBar from "./components/MoviesApp/NavBar";
+import { MovieFavoritesProvider } from "./contexts/MoviesApp/MovieFavoritesContext";
 
 function App() {
-  const [alertVisible, setAlertVisible] = useState(false);
-
   return (
-    <div>
-      {alertVisible && (
-        <Alert onDismiss={() => setAlertVisible(false)}>Test</Alert>
-      )}
-      <Button onClick={() => setAlertVisible(true)}>Click me</Button>
-    </div>
+    <MovieFavoritesProvider>
+      <NavBar />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </main>
+    </MovieFavoritesProvider>
   );
 }
 

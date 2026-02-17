@@ -43,6 +43,8 @@ npm install --save-dev husky # runs scripts before commit
 
 - State is the internal state of a component. When changed via the updater function, it triggers re-rendering.
 
+- `useEffect` is a hook that allows you to perform side effects in a function component. It is performed when the dependencies are updated.
+
 - `import { ReactNode } from "react";`:
   `react` is a module that exports `ReactNode` type.
 
